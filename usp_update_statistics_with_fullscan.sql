@@ -22,27 +22,25 @@ BEGIN
               [index_name] SYSNAME NOT NULL
        );
        --     table for holding statistics related information
-       BEGIN
-              CREATE TABLE #table_index_statistics (
-                    [id] INT IDENTITY(1,1)  NOT NULL,
-                    [stats_id] INT NULL,
-                    [database_name] SYSNAME NULL,
-                    [schema_name] SYSNAME NULL,
-                    [table_name] SYSNAME NULL,
-                    [index_name] SYSNAME NULL,
-                    [updated] DATETIME2 NULL,
-                    [rows] BIGINT NULL,
-                    [rows_sampled] BIGINT NULL,
-                    [modification_counter] BIGINT NULL,
-                    [steps] INT NULL,
-                    [density] DECIMAL(8,2) NULL,
-                    [average_key_length] INT NULL,
-                    [string_index] VARCHAR(10) NULL,
-                    [filter_expression] VARCHAR(250) NULL,
-                    [unfiltered_rows] BIGINT NULL,
-                     [persisted_sample_percent] INT NULL
-              )
-       END
+       CREATE TABLE #table_index_statistics (
+             [id] INT IDENTITY(1,1)  NOT NULL,
+             [stats_id] INT NULL,
+             [database_name] SYSNAME NULL,
+             [schema_name] SYSNAME NULL,
+             [table_name] SYSNAME NULL,
+             [index_name] SYSNAME NULL,
+             [updated] DATETIME2 NULL,
+             [rows] BIGINT NULL,
+             [rows_sampled] BIGINT NULL,
+             [modification_counter] BIGINT NULL,
+             [steps] INT NULL,
+             [density] DECIMAL(8,2) NULL,
+             [average_key_length] INT NULL,
+             [string_index] VARCHAR(10) NULL,
+             [filter_expression] VARCHAR(250) NULL,
+             [unfiltered_rows] BIGINT NULL,
+              [persisted_sample_percent] INT NULL
+       )
        --     table for holding statistics which need to be UPDATED
        CREATE TABLE #update_these_stats (
               [database_name] SYSNAME NOT NULL,
