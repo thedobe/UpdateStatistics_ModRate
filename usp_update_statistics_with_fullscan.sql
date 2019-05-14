@@ -56,7 +56,7 @@ BEGIN
        --     table for logging
        IF (SELECT [name] FROM sys.tables WHERE [name] = 'update_statistics_log') IS NULL
        BEGIN
-              CREATE TABLE DBA_ADMIN.dbo.update_statistics_log (
+              CREATE TABLE ¿.dbo.update_statistics_log (
                     [id] INT IDENTITY(1,1) NOT NULL,
                     [date_created] DATETIME DEFAULT GETDATE() NOT NULL,
                     [stat_last_updated_date] DATETIME NULL,
