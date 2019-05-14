@@ -95,7 +95,7 @@ BEGIN
        --     cursor for looping through each database on the server with inequalities
        DECLARE @db_name AS sysname, @schema_name AS sysname, @table_name AS sysname, @table_object_id AS INT, @index_name AS sysname, @dbcc_output VARCHAR(MAX), @sSQL AS NVARCHAR(MAX);
        DECLARE @stats_id AS INT, @mod_counter AS BIGINT;
-       DECLARE cur_grab_statistics CURSOR FOR SELECT [name] FROM sys.databases WHERE [database_id] > 4 AND [state_desc] = 'ONLINE' AND [is_read_only] = 0 AND [name] <> 'DBA_ADMIN' AND [name] <> 'TableBackup' AND [name] NOT LIKE '%test%' AND [name] NOT LIKE '%Report%' AND [name] NOT LIKE 'teeoff%'
+       DECLARE cur_grab_statistics CURSOR FOR SELECT [name] FROM sys.databases WHERE [database_id] > 4 AND [state_desc] = 'ONLINE' AND [is_read_only] = 0 AND [name] [NOT IN...NOT LIKE...,]
        OPEN cur_grab_statistics
               FETCH cur_grab_statistics INTO @db_name
                     WHILE @@FETCH_STATUS <> - 1
