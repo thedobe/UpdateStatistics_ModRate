@@ -232,7 +232,7 @@ BEGIN
                     BEGIN
                     IF (@debug = 0)
                     BEGIN
-                           INSERT INTO DBA_ADMIN.dbo.update_statistics_log ([stat_last_updated_date], [database_name], [schema_name], [table_name], [index_name], [rows], [sample_percent], [reason], [sql])
+                           INSERT INTO ¿.dbo.update_statistics_log ([stat_last_updated_date], [database_name], [schema_name], [table_name], [index_name], [rows], [sample_percent], [reason], [sql])
                            SELECT @updated, @db_name, @schema_name, @table_name, @index_name, @rows, @sample_percent, @reason, @sql_text
                            SET @sSQL = '
                                   USE [' + @db_name + '];
@@ -243,7 +243,7 @@ BEGIN
                            SET
                                   [runtime_sec] = DATEDIFF(ss, [date_created], GETDATE()),
                                   [stat_update_date_diff] = DATEDIFF(d, [stat_last_updated_date], [date_created])
-                           FROM DBA_ADMIN.dbo.update_statistics_log l WITH (NOLOCK)
+                           FROM ¿.dbo.update_statistics_log l WITH (NOLOCK)
                            WHERE 
                                   [sql] = @sql_text
                            END
